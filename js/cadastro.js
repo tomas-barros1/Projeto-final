@@ -3,6 +3,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { db, adicionarDocumento } from "./firebase-sdk.js";
 
 const auth = getAuth(app);
 
@@ -22,7 +23,7 @@ enviarBotao.addEventListener("click", () => {
   cpf = document.getElementById("cpf").value;
   cnpj = document.getElementById("cnpj").value;
 
-  if ((!verificarSeEstaVazio()) && (validarCampos())) {
+  if (!verificarSeEstaVazio() && validarCampos()) {
     createUserWithEmailAndPassword(auth, email, senha)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -91,11 +92,22 @@ function validarCampos() {
   } else if (!validarFormatoCPF(cpf)) {
     alert("CPF inválido");
   } else {
-    let pessoa = {
+    let cliente = {
       nome: nome,
       email: email,
-      senha: senha,
+      cpf: cpf,
+      cnpj,
+      cnpj,
     };
+
+    adicionarDocumento("clientes", cliente)
+      .then((docRef) => {
+        console.log("Documento adicionado com ID: ", docRef.id);
+      })
+      .catch((error) => {
+        console.error("Erro ao adicionar documento: ", error);
+      });
+
     return true;
   }
 }
