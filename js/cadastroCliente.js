@@ -1,11 +1,5 @@
 import { app } from "./firebase-sdk.js";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { db, adicionarDocumento } from "./firebase-sdk.js";
-
-const auth = getAuth(app);
 
 let enviarBotao = document.getElementById("enviar");
 let nome;
@@ -14,28 +8,17 @@ let senha;
 let confirmarSenha;
 let cpf;
 let cnpj;
+let cidade;
 
 enviarBotao.addEventListener("click", () => {
   nome = document.getElementById("nome").value;
   email = document.getElementById("email").value;
-  senha = document.getElementById("senha").value;
-  confirmarSenha = document.getElementById("confirmarSenha").value;
   cpf = document.getElementById("cpf").value;
   cnpj = document.getElementById("cnpj").value;
+  cidade = document.getElementById("cidade").value;
 
   if (!verificarSeEstaVazio() && validarCampos()) {
-    createUserWithEmailAndPassword(auth, email, senha)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log("Usuário criado com sucesso:", user);
-        alert("Usuário criado com sucesso!");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.error("Erro ao criar usuário:", errorMessage);
-        alert("Erro ao criar usuário!");
-      });
+    enviarBanco();
   }
 });
 
@@ -54,10 +37,9 @@ function verificarSeEstaVazio() {
   if (
     nome.trim() === "" ||
     email.trim() === "" ||
-    senha.trim() === "" ||
-    confirmarSenha.trim() === "" ||
     cpf.trim() === "" ||
-    cnpj.trim() === ""
+    cnpj.trim() === "" ||
+    cidade.trim() === ""
   ) {
     alert("Por favor, preencha todos os campos.");
     return true;
@@ -82,32 +64,42 @@ function validarCNPJ(cnpj) {
   return true;
 }
 
+function validarCidade(cidade) {
+  const temNumeros = /\d/.test(cidade);
+  return !temNumeros;
+}
+
 function validarCampos() {
-  if (senha != confirmarSenha) {
-    alert("As senhas não coincidem");
-  } else if (!validarEmail(email)) {
+  if (!validarEmail(email)) {
     alert("E-mail inválido");
   } else if (!validarCNPJ(cnpj)) {
     alert("CNPJ inválido");
   } else if (!validarFormatoCPF(cpf)) {
     alert("CPF inválido");
+  } else if (!validarCidade(cidade)) {
+    alert("Cidade inválida");
   } else {
-    let cliente = {
-      nome: nome,
-      email: email,
-      cpf: cpf,
-      cnpj,
-      cnpj,
-    };
-
-    adicionarDocumento("clientes", cliente)
-      .then((docRef) => {
-        console.log("Documento adicionado com ID: ", docRef.id);
-      })
-      .catch((error) => {
-        console.error("Erro ao adicionar documento: ", error);
-      });
-
     return true;
   }
+}
+
+function enviarBanco() {
+  let cliente = {
+    nome: nome,
+    email: email,
+    cpf: cpf,
+    cnpj: cnpj,
+    cidade: cidade,
+  };
+
+  adicionarDocumento("clientes", cliente)
+    .then((docRef) => {
+      console.log("Documento adicionado com ID: ", docRef.id);
+      alert("Cliente adicionado com sucesso!")
+    })
+    .catch((error) => {
+      console.error("Erro ao adicionar documento: ", error);
+    });
+
+  return true;
 }
