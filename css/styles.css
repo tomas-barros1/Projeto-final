@@ -88,9 +88,9 @@ nav .logo-image{
     min-width: 45px;
 }
 nav .logo-image img{
-    width: 50px;
+    width: 35px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 10%;
 }
 
 nav .logo-name .logo_name{
