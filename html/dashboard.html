@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="icon" href="../assets/logo-ico.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/logo-ico1.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>DashLab - Dashboard</title>
 </head>
 <body>
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="../img/logo.png" alt="logo-top">
+                <img src="../img/logo-gradiente.png" alt="logo-top">
             </div>
 
             <span class="logo_name">DashLab</span>
@@ -21,7 +22,7 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="grafico.html">
+                <li><a href="dashboard.html">
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
                 </a></li>
@@ -82,28 +83,36 @@
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                    <i class="uil uil-tachometer-fast-alt"></i>
-                    <span class="text">Dashboard</span>
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <span class="text">Dahsboard</span>
                 </div>
 
-                <div class="boxes">
-                    <div class="box box1">
-                        <i class="uil uil-thumbs-up"></i>
-                        <span class="text">Total Likes</span>
-                        <span class="number">50,120</span>
-                    </div>
-                    <div class="box box2">
-                        <i class="uil uil-comments"></i>
-                        <span class="text">Comments</span>
-                        <span class="number">20,120</span>
-                    </div>
-                    <div class="box box3">
-                        <i class="uil uil-share"></i>
-                        <span class="text">Total Share</span>
-                        <span class="number">10,120</span>
-                    </div>
-                </div>
-            </div>
+                    <div id="chart"></div>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            google.charts.load('current', {packages: ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart(){
+                const container = document.querySelector('#chart')
+                const data = new google.visualization.arrayToDataTable([
+                    [ 'Character', 'Ki'],
+                    [ 'Feira de Santana', 10000],
+                    [ 'Salvador', 9000],
+                    [ 'Baixa Grande', 8000],
+                    [ 'Itaberaba', 5000],
+                    [ 'Anguera', 2000]
+                ])
+                const options = {
+                    title: 'Cidades - Characters Ki',
+                    height: 900,
+                    
+                    
+                }
+                const chart = new  google.visualization.ColumnChart(container)
+                chart.draw(data, options)
+            }
+        </script>
 
             <div class="activity">
                 <div class="title">

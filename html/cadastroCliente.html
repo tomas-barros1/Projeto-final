@@ -1,22 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DashLab - Cadastro</title>
+    <title>DashLab - Cadastro de Clientes</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/cadastroElogin.css" />
     <link rel="icon" href="../assets/logo-ico1.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script defer type="module" src="../js/firebase-sdk.js"></script>
     <script defer type="module" src="../js/cadastroCliente.js"></script>
   </head>
   <body>
-    <section
-      class="vh-100 bg-image"
-      style="
-        background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
-      "
-    >
+        <nav>
+          <div class="logo-name">
+              <div class="logo-image">
+                  <img src="../img/logo-gradiente.png" alt="logo-top">
+              </div>
+
+              <span class="logo_name">DashLab</span>
+          </div>
+
+          <div class="menu-items">
+              <ul class="nav-links">
+                  <li><a href="dashboard.html">
+                      <i class="uil uil-estate"></i>
+                      <span class="link-name">Dahsboard</span>
+                  </a></li>
+                  <li><a href="cadastroCliente.html">
+                      <i class="uil uil-files-landscapes"></i>
+                      <span class="link-name">Cadastro de Cliente</span>
+                  </a></li>
+                  <li><a href="#">
+                      <i class="uil uil-chart"></i>
+                      <span class="link-name">Análise</span>
+                  </a></li>
+                  <li><a href="#">
+                      <i class="uil uil-thumbs-up"></i>
+                      <span class="link-name">Like</span>
+                  </a></li>
+                  <li><a href="#">
+                      <i class="uil uil-comments"></i>
+                      <span class="link-name">Comentários</span>
+                  </a></li>
+                  <li><a href="#">
+                      <i class="uil uil-share"></i>
+                      <span class="link-name">Compartilhar</span>
+                  </a></li>
+              </ul>
+              
+              <ul class="logout-mode">
+                  <li><a href="#">
+                      <i class="uil uil-signout"></i>
+                      <span class="link-name">Sair</span>
+                  </a></li>
+
+                  <li class="mode">
+                      <a href="#">
+                          <i class="uil uil-moon"></i>
+                      <span class="link-name">Modo Escuro</span>
+                  </a>
+
+                  <div class="mode-toggle">
+                    <span class="switch"></span>
+                  </div>
+              </li>
+              </ul>
+          </div>
+      </nav>
+
+      <section class="dashboard">
+          <div class="top">
+              <i class="uil uil-bars sidebar-toggle"></i>
+
+              <div class="search-box">
+                  <i class="uil uil-search"></i>
+                  <input type="text" placeholder="Procure aqui...">
+              </div>
+              
+              <img src="../img/user-black.png" alt="user-black">
+          </div>
+
+          <div class="dash-content">
+              <div class="overview">
+                  <div class="title">
+                      <i class="fa-regular fa-paste"></i>
+                      <span class="text">Cadastro de Clientes</span>
+                  </div>
+    <section>
       <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
           <div
@@ -122,5 +194,7 @@
         </div>
       </div>
     </section>
+
+    <script src="../js/script.js"></script>
   </body>
 </html>
