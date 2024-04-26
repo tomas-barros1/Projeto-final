@@ -43,7 +43,7 @@
                     <i class="uil uil-thumbs-up"></i>
                     <span class="link-name">Like</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="comentario.html">
                     <i class="uil uil-comments"></i>
                     <span class="link-name">Comentários</span>
                 </a></li>
@@ -101,15 +101,15 @@
             function drawChart(){
                 const container = document.querySelector('#chart')
                 const data = new google.visualization.arrayToDataTable([
-                    [ 'Character', 'Ki'],
-                    [ 'Feira de Santana', 10000],
-                    [ 'Salvador', 9000],
-                    [ 'Baixa Grande', 8000],
-                    [ 'Itaberaba', 5000],
-                    [ 'Anguera', 2000]
+                    [ 'Cidades', 'Quant Cadastro '],
+                    [ 'Feira de Santana', 40],
+                    [ 'Salvador', 30],
+                    [ 'Baixa Grande', 10],
+                    [ 'Itaberaba', 15],
+                    [ 'Anguera', 20]
                 ])
                 const options = {
-                    title: 'Cidades - Characters Ki',
+                    title: 'Numeros de Pessoas',
                     height: 900,
                     
                     
