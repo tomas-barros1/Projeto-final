@@ -1,6 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAGb50qWKafWLTaqK89fJPscobqlDcA1no",
@@ -15,11 +19,17 @@ const firebaseConfig = {
 // Inicializa o app do Firebase
 export const app = initializeApp(firebaseConfig);
 
-// Inicializa o analytics (opcional)
-const analytics = getAnalytics(app);
-
 // Obtém a referência do Firestore
 export const db = getFirestore(app);
+
+// Obtém a referência da coleção
+export const minhaColecao = collection(db, "loginAdmin");
+
+// Função para obter documentos da coleção especificada
+export async function obterDocumentos() {
+  const querySnapshot = await getDocs(minhaColecao);
+  return querySnapshot;
+}
 
 // Função para adicionar um documento à coleção especificada
 export function adicionarDocumento(colecao, dados) {

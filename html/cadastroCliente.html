@@ -4,197 +4,227 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DashLab - Cadastro de Clientes</title>
-    <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/cadastroElogin.css" />
-    <link rel="icon" href="../assets/logo-ico1.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <script defer type="module" src="../js/firebase-sdk.js"></script>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- Importação css do Boostrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Importação java script do Boostrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" href="../assets/logo-ico1.ico" type="image/x-icon" />
+    -
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    -
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <script defer src="../js/script.js"></script>
     <script defer type="module" src="../js/cadastroCliente.js"></script>
   </head>
   <body>
-        <nav>
-          <div class="logo-name">
-              <div class="logo-image">
-                  <img src="../img/logo-gradiente.png" alt="logo-top">
-              </div>
+    <nav>
+      <div class="logo-name">
+        <div class="logo-image">
+          <img src="../img/logo-gradiente.png" alt="logo-top" />
+        </div>
+        <span class="logo_name">DashLab</span>
+      </div>
 
-              <span class="logo_name">DashLab</span>
+      <div class="menu-items">
+        <ul class="nav-links">
+          <li>
+            <a href="dashboard.html">
+              <i class="uil uil-estate"></i>
+              <span class="link-name">Dahsboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="cadastroCliente.html">
+              <i class="uil uil-files-landscapes"></i>
+              <span class="link-name">Cadastro de Cliente</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-chart"></i>
+              <span class="link-name">Análise</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-thumbs-up"></i>
+              <span class="link-name">Like</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-comments"></i>
+              <span class="link-name">Comentários</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-share"></i>
+              <span class="link-name">Compartilhar</span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="logout-mode">
+          <li>
+            <a href="#">
+              <i class="uil uil-signout"></i>
+              <span class="link-name">Sair</span>
+            </a>
+          </li>
+
+          <li class="mode">
+            <a href="#">
+              <i class="uil uil-moon"></i>
+              <span class="link-name">Modo Escuro</span>
+            </a>
+
+            <div class="mode-toggle">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="dashboard">
+      <div class="top">
+        <i class="uil uil-bars sidebar-toggle"></i>
+
+        <div class="search-box">
+          <i class="uil uil-search"></i>
+          <input type="text" placeholder="Procure aqui..." />
+        </div>
+
+        <img src="../img/user-black.png" alt="user-black" />
+      </div>
+
+      <div class="dash-content">
+        <div class="overview">
+          <div class="title">
+            <i class="fa-regular fa-paste"></i>
+            <span class="text">Cadastro de Clientes</span>
           </div>
 
-          <div class="menu-items">
-              <ul class="nav-links">
-                  <li><a href="dashboard.html">
-                      <i class="uil uil-estate"></i>
-                      <span class="link-name">Dahsboard</span>
-                  </a></li>
-                  <li><a href="cadastroCliente.html">
-                      <i class="uil uil-files-landscapes"></i>
-                      <span class="link-name">Cadastro de Cliente</span>
-                  </a></li>
-                  <li><a href="#">
-                      <i class="uil uil-chart"></i>
-                      <span class="link-name">Análise</span>
-                  </a></li>
-                  <li><a href="#">
-                      <i class="uil uil-thumbs-up"></i>
-                      <span class="link-name">Like</span>
-                  </a></li>
-                  <li><a href="#">
-                      <i class="uil uil-comments"></i>
-                      <span class="link-name">Comentários</span>
-                  </a></li>
-                  <li><a href="#">
-                      <i class="uil uil-share"></i>
-                      <span class="link-name">Compartilhar</span>
-                  </a></li>
-              </ul>
-              
-              <ul class="logout-mode">
-                  <li><a href="#">
-                      <i class="uil uil-signout"></i>
-                      <span class="link-name">Sair</span>
-                  </a></li>
+          <!-- Cadastro de clietes formulário -->
+          <section>
+            <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+              <div class="container p-3 h-100">
+                <div
+                  class="row d-flex justify-content-center align-items-center h-100"
+                >
+                  <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px">
+                      <div class="card-body p-5">
+                        <h2 class="text-uppercase text-center mb-5">
+                          CADASTRO DE CLIENTES
+                        </h2>
 
-                  <li class="mode">
-                      <a href="#">
-                          <i class="uil uil-moon"></i>
-                      <span class="link-name">Modo Escuro</span>
-                  </a>
+                        <form>
+                          <div data-mdb-input-init class="form-outline mb-4">
+                            <label class="form-label" for="form3Example1cg"
+                              >Nome</label
+                            >
+                            <input
+                              type="text"
+                              id="nome"
+                              class="form-control form-control-lg"
+                            />
+                          </div>
 
-                  <div class="mode-toggle">
-                    <span class="switch"></span>
+                          <div data-mdb-input-init class="form-outline mb-4">
+                            <label class="form-label" for="form3Example3cg"
+                              >E-mail</label
+                            >
+                            <input
+                              type="email"
+                              id="email"
+                              class="form-control form-control-lg"
+                            />
+                          </div>
+
+                          <div data-mdb-input-init class="form-outline mb-4">
+                            <label class="form-label" for="form3Example4cg"
+                              >Cidade</label
+                            >
+                            <input
+                              type="text"
+                              id="cidade"
+                              class="form-control form-control-lg"
+                            />
+                          </div>
+
+                          <div data-mdb-input-init class="form-outline mb-4">
+                            <label class="form-label" for="form3Example4cdg"
+                              >Endereço</label
+                            >
+                            <input
+                              type="text"
+                              id="endereco"
+                              class="form-control form-control-lg"
+                            />
+                          </div>
+
+                          <div data-mdb-input-init class="form-outline mb-4">
+                            <label class="form-label" for="form3Example4cdg"
+                              >CPF</label
+                            >
+                            <input
+                              type="text"
+                              id="cpf"
+                              class="form-control form-control-lg"
+                            />
+                          </div>
+
+                          <div data-mdb-input-init class="form-outline mb-4">
+                            <label class="form-label" for="form3Example4cdg"
+                              >CNPJ</label
+                            >
+                            <input
+                              type="text"
+                              id="cnpj"
+                              class="form-control form-control-lg"
+                            />
+                          </div>
+
+                          <div class="d-flex justify-content-center">
+                            <button
+                              id="enviar"
+                              type="button"
+                              data-mdb-button-init
+                              data-mdb-ripple-init
+                              class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                            >
+                              Registrar
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
                   </div>
-              </li>
-              </ul>
-          </div>
-      </nav>
-
-      <section class="dashboard">
-          <div class="top">
-              <i class="uil uil-bars sidebar-toggle"></i>
-
-              <div class="search-box">
-                  <i class="uil uil-search"></i>
-                  <input type="text" placeholder="Procure aqui...">
-              </div>
-              
-              <img src="../img/user-black.png" alt="user-black">
-          </div>
-
-          <div class="dash-content">
-              <div class="overview">
-                  <div class="title">
-                      <i class="fa-regular fa-paste"></i>
-                      <span class="text">Cadastro de Clientes</span>
-                  </div>
-    <section>
-      <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100">
-          <div
-            class="row d-flex justify-content-center align-items-center h-100"
-          >
-            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-              <div class="card" style="border-radius: 15px">
-                <div class="card-body p-5">
-                  <h2 class="text-uppercase text-center mb-5">
-                    CADASTRO DE CLIENTES
-                  </h2>
-
-                  <form>
-                    <div data-mdb-input-init class="form-outline mb-4">
-                      <label class="form-label" for="form3Example1cg"
-                      >Nome</label
-                    >
-                      <input
-                        type="text"
-                        id="nome"
-                        class="form-control form-control-lg"
-                      />
-                     
-                    </div>
-
-                    <div data-mdb-input-init class="form-outline mb-4">
-                      <label class="form-label" for="form3Example3cg"
-                      >E-mail</label
-                    >
-                      <input
-                        type="email"
-                        id="email"
-                        class="form-control form-control-lg"
-                      />
-                     
-                    </div>
-
-                    <div data-mdb-input-init class="form-outline mb-4">
-                      <label class="form-label" for="form3Example4cg"
-                      >Cidade</label
-                    >
-                      <input
-                        type="text"
-                        id="cidade"
-                        class="form-control form-control-lg"
-                      />
-                     
-                    </div>
-
-                    <div data-mdb-input-init class="form-outline mb-4">
-                      <label class="form-label" for="form3Example4cdg"
-                      >Endereço</label
-                    >
-                      <input
-                        type="text"
-                        id="endereco"
-                        class="form-control form-control-lg"
-                      />
-                     
-                    </div>
-
-                    <div data-mdb-input-init class="form-outline mb-4">
-                      <label class="form-label" for="form3Example4cdg"
-                        >CPF</label
-                      >
-                      <input
-                        type="text"
-                        id="cpf"
-                        class="form-control form-control-lg"
-                      />
-                      
-                    </div>
-
-                    <div data-mdb-input-init class="form-outline mb-4">
-                      <label class="form-label" for="form3Example4cdg"
-                        >CNPJ</label
-                      >
-                      <input
-                        type="text"
-                        id="cnpj"
-                        class="form-control form-control-lg"
-                      />
-                      
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                      <button
-                        id="enviar"
-                        type="button"
-                        data-mdb-button-init
-                        data-mdb-ripple-init
-                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
-                      >
-                        Registrar
-                      </button>
-                    </div>
-
-                  </form>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </section>
-
-    <script src="../js/script.js"></script>
   </body>
 </html>
