@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+.profile-header {
+    text-align: center;
+}
+.profile-header img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+.profile-header h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+.profile-header p {
+    color: #666;
+}
+.profile-bio {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+.profile-bio h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+.profile-bio p {
+    color: #666;
+}
+.profile-stats {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.profile-stats .stat {
+    text-align: center;
+}
+.profile-stats .stat h3 {
+    margin-bottom: 5px;
+    color: #333;
+}
+.profile-stats .stat p {
+    color: #666;
+}
+.edit-profile {
+    text-align: center;
+    margin-top: 30px;
+}
+.edit-profile button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.edit-profile button:hover {
+    background-color: #0056b3;
+}
+.edit-form {
+    display: none;
+    margin-top: 20px;
+}
+.edit-form input[type="text"],
+.edit-form input[type="email"],
+.edit-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.edit-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.edit-form button:hover {
+    background-color: #0056b3;
+}
+.delete-profile button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.delete-profile button:hover {
+    background-color: #c82333;
+}

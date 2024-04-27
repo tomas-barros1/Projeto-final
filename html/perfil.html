@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil do Usuário</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="../css/perfil.css">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="icon" href="../assets/logo-ico1.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script defer src="../js/script.js"></script>
+
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="../img/logo-gradiente.png" alt="logo-top">
+            </div>
+
+            <span class="logo_name">DashLab</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="dashboard.html">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Dahsboard</span>
+                </a></li>
+                <li><a href="cadastroCliente.html">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Cadastro de Cliente</span>
+                </a></li>
+                <li><a href="cadastroUsuarios.html">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Cadastro de Usuarios</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Análise</span>
+                </a></li>
+                <li><a href="perfil.html">
+                    <i class="uil uil-thumbs-up"></i>
+                    <span class="link-name">Perfil</span>
+                </a></li>
+                <li><a href="comentario.html">
+                    <i class="uil uil-comments"></i>
+                    <span class="link-name">Comentários</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-share"></i>
+                    <span class="link-name">Compartilhar</span>
+                </a></li>
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="#">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Sair</span>
+                </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                    <span class="link-name">Modo Escuro</span>
+                </a>
+
+                <div class="mode-toggle">
+                  <span class="switch"></span>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Procure aqui...">
+            </div>
+            
+            <img src="../img/user-black.png" alt="user-black">
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <span class="text">Dahsboard</span>
+                </div>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <img id="profileImage" src="" alt="Foto de Perfil">
+        <h2 id="username">Nome de Usuário</h2>
+        <p>Email: <span id="email">usuario@example.com</span></p>
+    </div>
+    <div class="profile-bio">
+        <h3>Biografia</h3>
+        <p id="bio">Adicione sua Biografia</p>
+    </div>
+    
+    <div class="edit-profile">
+        <button id="editButton"><i class="fas fa-user-edit"></i> Editar Perfil</button>
+    </div>
+    <div class="edit-form" id="editForm">
+        <h3>Editar Perfil</h3>
+        <form id="editProfileForm">
+            <input type="file" id="newImage" accept="image/*" onchange="previewImage()">
+            <input type="text" id="newUsername" placeholder="Novo Nome de Usuário">
+            <input type="email" id="newEmail" placeholder="Novo Email">
+            <textarea id="newBio" placeholder="Nova Biografia"></textarea>
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </div>
+    <div class="delete-profile">
+        <button id="deleteButton"><i class="fas fa-user-times"></i> Apagar Perfil</button>
+    </div>
+</div>
+
+<script>
+    var storedUsername = localStorage.getItem("username");
+    var storedEmail = localStorage.getItem("email");
+    var storedBio = localStorage.getItem("bio");
+    var storedImage = localStorage.getItem("image");
+
+    if (storedUsername) {
+        document.getElementById("username").textContent = storedUsername;
+    }
+    if (storedEmail) {
+        document.getElementById("email").textContent = storedEmail;
+    }
+    if (storedBio) {
+        document.getElementById("bio").textContent = storedBio;
+    }
+    if (storedImage) {
+        document.getElementById("profileImage").src = storedImage;
+    }
+
+    document.getElementById("editButton").addEventListener("click", function() {
+        document.getElementById("editForm").style.display = "block";
+    });
+
+    document.getElementById("editProfileForm").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        var newUsername = document.getElementById("newUsername").value;
+        var newEmail = document.getElementById("newEmail").value;
+        var newBio = document.getElementById("newBio").value;
+        if (newUsername.trim() !== "" && newEmail.trim() !== "" && newBio.trim() !== "") {
+            document.getElementById("username").textContent = newUsername;
+            document.getElementById("email").textContent = newEmail;
+            document.getElementById("bio").textContent = newBio;
+            localStorage.setItem("username", newUsername);
+            localStorage.setItem("email", newEmail);
+            localStorage.setItem("bio", newBio);
+            localStorage.setItem("image", document.getElementById("profileImage").src);
+            document.getElementById("editForm").style.display = "none";
+            document.getElementById("editProfileForm").reset();
+        } else {
+            alert("Por favor, preencha todos os campos.");
+        }
+    });
+    function previewImage() {
+        var fileInput = document.getElementById('newImage');
+        var profileImage = document.getElementById('profileImage');
+        var file = fileInput.files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function() {
+            profileImage.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            profileImage.src = "";
+        }
+    }
+
+    document.getElementById("deleteButton").addEventListener("click", function() {
+        var confirmDelete = confirm("Tem certeza de que deseja apagar seu perfil? Esta ação não pode ser desfeita.");
+        if (confirmDelete) {
+            localStorage.removeItem("username");
+            localStorage.removeItem("email");
+            localStorage.removeItem("bio");
+            localStorage.removeItem("image");
+            location.reload();
+        }
+    });
+</script>
+</body>
+</html>
