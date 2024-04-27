@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tela de Comentários</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="../css/comentario.css">
+<link rel="stylesheet" href="../css/styles.css" />
+<link rel="icon" href="../assets/logo-ico1.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script defer src="../js/script.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="../img/logo-gradiente.png" alt="logo-top">
+            </div>
+
+            <span class="logo_name">DashLab</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="dashboard.html">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Dahsboard</span>
+                </a></li>
+                <li><a href="cadastroCliente.html">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Cadastro de Cliente</span>
+                </a></li>
+                <li><a href="cadastroUsuarios.html">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Cadastro de Usuarios</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Análise</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-thumbs-up"></i>
+                    <span class="link-name">Like</span>
+                </a></li>
+                <li><a href="comentario.html">
+                    <i class="uil uil-comments"></i>
+                    <span class="link-name">Comentários</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-share"></i>
+                    <span class="link-name">Compartilhar</span>
+                </a></li>
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="#">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Sair</span>
+                </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                    <span class="link-name">Modo Escuro</span>
+                </a>
+
+                <div class="mode-toggle">
+                  <span class="switch"></span>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Procure aqui...">
+            </div>
+            
+            <img src="../img/user-black.png" alt="user-black">
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <span class="text">Comentários</span>
+                </div>
+
+                    <div id="chart"></div>
+<div class="comment-container">
+    <h2 style="text-align: center;">Comentários</h2>
+    <div class="comment">
+        <div class="author">Usuário 1</div>
+        <div class="date">25 de abril de 2024</div>
+        <div class="content">Site muito bom</div>
+    </div>
+
+    <div class="comment-form">
+        <h3 style="text-align: center;">Adicionar Comentário</h3>
+        <form id="commentForm">
+            <textarea id="commentText" placeholder="Digite seu comentário aqui..." required></textarea>
+            <br>
+            <button type="submit"><i class="fas fa-comment"></i> Enviar Comentário</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById("commentForm").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        var commentText = document.getElementById("commentText").value;
+        if (commentText.trim() !== "") {
+            var currentDate = new Date().toLocaleDateString();
+            var newComment = '<div class="comment">' +
+                                '<div class="author">Novo Usuário</div>' +
+                                '<div class="date">' + currentDate + '</div>' +
+                                '<div class="content">' + commentText + '</div>' +
+                            '</div>';
+            document.querySelector(".comment-container").insertAdjacentHTML("beforeend", newComment);
+            document.getElementById("commentForm").reset(); 
+        } else {
+            alert("Por favor, digite um comentário válido.");
+        }
+    });
+</script>
+</body>
+</html>
