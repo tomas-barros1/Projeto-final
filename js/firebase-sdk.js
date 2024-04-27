@@ -23,11 +23,19 @@ export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 // Obtém a referência da coleção
-export const minhaColecao = collection(db, "loginAdmin");
+export const loginAdm = collection(db, "loginAdmin");
 
-// Função para obter documentos da coleção especificada
+export const clientes = collection(db, "clientes")
+
+// Função para obter documentos da coleção loginAdm
 export async function obterDocumentos() {
-  const querySnapshot = await getDocs(minhaColecao);
+  const querySnapshot = await getDocs(loginAdm);
+  return querySnapshot;
+}
+
+// Função para obter documentos da coleção de clientes
+export async function obterClientes() {
+  const querySnapshot = await getDocs(clientes);
   return querySnapshot;
 }
 

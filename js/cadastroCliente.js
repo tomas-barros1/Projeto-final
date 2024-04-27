@@ -9,6 +9,7 @@ let confirmarSenha;
 let cpf;
 let cnpj;
 let cidade;
+let endereco;
 
 enviarBotao.addEventListener("click", () => {
   nome = document.getElementById("nome").value;
@@ -16,6 +17,7 @@ enviarBotao.addEventListener("click", () => {
   cpf = document.getElementById("cpf").value;
   cnpj = document.getElementById("cnpj").value;
   cidade = document.getElementById("cidade").value;
+  endereco = document.getElementById("endereco").value;
 
   if (!verificarSeEstaVazio() && validarCampos()) {
     enviarBanco();
@@ -39,7 +41,7 @@ function verificarSeEstaVazio() {
     email.trim() === "" ||
     cpf.trim() === "" ||
     cnpj.trim() === "" ||
-    cidade.trim() === ""
+    cidade.trim() === "" || endereco.trim() === ""
   ) {
     alert("Por favor, preencha todos os campos.");
     return true;
@@ -90,12 +92,13 @@ function enviarBanco() {
     cpf: cpf,
     cnpj: cnpj,
     cidade: cidade,
+    endereco: endereco
   };
 
   adicionarDocumento("clientes", cliente)
     .then((docRef) => {
       console.log("Documento adicionado com ID: ", docRef.id);
-      alert("Cliente adicionado com sucesso!")
+      alert("Cliente adicionado com sucesso!");
     })
     .catch((error) => {
       console.error("Erro ao adicionar documento: ", error);
