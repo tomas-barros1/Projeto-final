@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DashLab - Dashboard</title>
+    <title>DashLab - Lista de Clientes</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <link
       rel="stylesheet"
@@ -15,9 +15,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <link rel="icon" href="../assets/logo-ico1.ico" type="image/x-icon" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="../js/script.js"></script>
-    <script type="module" defer src="../js/grafico.js"></script>
+    <script type="module" defer src="../js/lista-clientes.js"></script>
   </head>
   <body>
     <nav>
@@ -35,14 +34,12 @@
               <span class="link-name">Dashboard</span>
             </a>
           </li>
-
           <li>
             <a href="listaClientes.html">
               <i class="uil uil-estate"></i>
               <span class="link-name">Lista de clientes</span>
             </a>
           </li>
-
           <li>
             <a href="cadastroCliente.html">
               <i class="uil uil-files-landscapes"></i>
@@ -111,8 +108,10 @@
     </section>
 
     <div>
-        <canvas style="width: 500px; height: 500px;" id="grafico"></canvas>
+      <h1>Lista de Clientes</h1>
+      <ul style="color:white;" id="clientes-lista"></ul>
     </div>
+    
 
   </body>
 </html>
