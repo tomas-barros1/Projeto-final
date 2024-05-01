@@ -1,0 +1,97 @@
+.gradient-custom-3 {
+    /* fallback for old browsers */
+    background: #84faaf00;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(
+      to right,
+      rgba(132, 250, 175, 0),
+      rgba(143, 210, 244, 0.4)
+    );
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(
+      to right,
+      rgba(132, 250, 175, 0),
+      rgba(143, 210, 244, 0.4)
+    );
+  }
+  .gradient-custom-4 {
+    /* fallback for old browsers */
+    background: #00000000;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(
+      to right,
+      rgb(64, 73, 204),
+      rgb(52, 62, 192)
+    );
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(
+      to right, 
+      rgb(64, 73, 204),
+      rgb(52, 62, 192)
+    );
+  }
+  
+  button {
+    width: 50%;
+    height: 50px;
+  }
+  
+  #entrar {
+    color: white;
+  }
+  
+  .form-label {
+    margin-left: 5px;
+  }
+  
+  section {
+    width: 100%;
+    background: url('../img/wallpaper-blue.jpg')no-repeat;
+    background-size: cover;
+  }
+  
+  .container-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .container-logo p {
+    margin-top: 12px;
+    font-size: 35px;
+  }
+  
+  .container-logo img {
+    width: 45px;
+  }
+  
+  .mensagem-flutuante {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    padding: 10px;
+    background-color: #ffffff;
+    width: 300px;
+    font-size: 22px;
+    color: #000000;
+    border-radius: 5px;
+    display: none;
+    animation: slide-up 0.3s ease-out forwards;
+  }
+  
+  @keyframes slide-up {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+    
