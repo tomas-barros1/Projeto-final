@@ -1,32 +1,35 @@
-const body = document.querySelector("body"),
-      modeToggle = body.querySelector(".mode-toggle");
-      sidebar = body.querySelector("nav");
-      sidebarToggle = body.querySelector(".sidebar-toggle");
+const body = document.querySelector("body");
+const modeToggle = body.querySelector(".mode-toggle");
+const sidebar = body.querySelector("nav");
+const sidebarToggle = body.querySelector(".sidebar-toggle");
 
 let getMode = localStorage.getItem("mode");
-if(getMode && getMode ==="dark"){
-    body.classList.toggle("dark");
+if (getMode && getMode === "dark") {
+    body.classList.add("dark");
+    document.getElementById("logo").src = "../img/logo-white.png";
 }
 
 let getStatus = localStorage.getItem("status");
-if(getStatus && getStatus ==="close"){
-    sidebar.classList.toggle("close");
+if (getStatus && getStatus === "close") {
+    sidebar.classList.add("close");
 }
 
-modeToggle.addEventListener("click", () =>{
+modeToggle.addEventListener("click", () => {
     body.classList.toggle("dark");
-    if(body.classList.contains("dark")){
+    if (body.classList.contains("dark")) {
         localStorage.setItem("mode", "dark");
-    }else{
+        document.getElementById("logo").src = "../img/logo-white.png";
+    } else {
         localStorage.setItem("mode", "light");
+        document.getElementById("logo").src = "../img/logo-gradiente.png";
     }
 });
 
 sidebarToggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
-    if(sidebar.classList.contains("close")){
+    if (sidebar.classList.contains("close")) {
         localStorage.setItem("status", "close");
-    }else{
+    } else {
         localStorage.setItem("status", "open");
     }
-})
+});

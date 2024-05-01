@@ -16,7 +16,7 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="../img/logo-gradiente.png" alt="logo-top">
+              <img id="logo" src="../img/logo-gradiente.png" alt="logo-top" />
             </div>
 
             <span class="logo_name">DashLab</span>
@@ -104,19 +104,12 @@
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <i class="fa-regular fa-comment"></i>
                     <span class="text">Comentários</span>
                 </div>
 
                     <div id="chart"></div>
 <div class="comment-container">
-    <h2 style="text-align: center;">Comentários</h2>
-    <div class="comment">
-        <div class="author">Usuário 1</div>
-        <div class="date">25 de abril de 2024</div>
-        <div class="content">Site muito bom</div>
-    </div>
-
     <div class="comment-form">
         <h3 style="text-align: center;">Adicionar Comentário</h3>
         <form id="commentForm">
@@ -125,6 +118,12 @@
             <button type="submit"><i class="fas fa-comment"></i> Enviar Comentário</button>
         </form>
     </div>
+
+    <div class="comment">
+      <div class="author">Usuário 1</div>
+      <div class="date">25 de abril de 2024</div>
+      <div class="content">Site muito bom</div>
+  </div>
 </div>
 
 <script>

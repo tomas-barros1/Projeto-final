@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="../img/logo-gradiente.png" alt="logo-top">
+              <img id="logo" src="../img/logo-gradiente.png" alt="logo-top" />
             </div>
 
             <span class="logo_name">DashLab</span>
@@ -99,14 +99,14 @@
                 <input type="text" placeholder="Procure aqui...">
             </div>
             
-            <img src="../img/user-black.png" alt="user-black">
+            <img id="defaultImage" src="../img/user-black.png" alt="user-black">
         </div>
 
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                    <i class="fa-solid fa-arrow-trend-up"></i>
-                    <span class="text">Dahsboard</span>
+                    <i class="fa-regular fa-user"></i>
+                    <span class="text">Perfil</span>
                 </div>
 
 <div class="profile-container">
@@ -155,6 +155,10 @@
     }
     if (storedImage) {
         document.getElementById("profileImage").src = storedImage;
+        document.getElementById("defaultImage").src = storedImage;
+    } else {
+        document.getElementById("profileImage").src = "../img/user-black.png";
+        document.getElementById("defaultImage").src = "../img/user-black.png";
     }
 
     document.getElementById("editButton").addEventListener("click", function() {
@@ -180,20 +184,24 @@
             alert("Por favor, preencha todos os campos.");
         }
     });
+
     function previewImage() {
         var fileInput = document.getElementById('newImage');
         var profileImage = document.getElementById('profileImage');
+        var defaultImage = document.getElementById('defaultImage');
         var file = fileInput.files[0];
         var reader = new FileReader();
 
         reader.onloadend = function() {
             profileImage.src = reader.result;
+            defaultImage.src = reader.result;
         }
 
         if (file) {
             reader.readAsDataURL(file);
         } else {
             profileImage.src = "";
+            defaultImage.src = "../img/user-black.png";
         }
     }
 
