@@ -1,6 +1,6 @@
 async function fetchClientes() {
   try {
-    const response = await fetch("https://api-ityw.onrender.com/clientes");
+    const response = await fetch("https://api-clientes-5jpt.onrender.com/clientes");
     const data = await response.json(); 
     const clientesLista = document.getElementById("clientes-lista");
 
