@@ -3,6 +3,8 @@ import { obterClientes, clientes } from "./firebase-sdk.js";
 document.addEventListener("DOMContentLoaded", () => {
   const ctx = document.getElementById("grafico");
 
+  
+
   // Recuperar os dados da coleção "clientes" do Firestore
   obterClientes()
     .then((querySnapshot) => {
@@ -35,9 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
             {
               label: "Número de Clientes",
               data: data,
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgba(54, 162, 235, 1)",
-              borderWidth: 1,
+              backgroundColor: "rgba(54, 162, 235, 0.9)",
+              
             },
           ],
         },

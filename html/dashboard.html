@@ -17,6 +17,7 @@
     <link rel="icon" href="../assets/logo-ico1.ico" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="../js/script.js"></script>
+    <script defer src="../js/perfil.js"></script>
     <script type="module" defer src="../js/grafico.js"></script>
     
   </head>
@@ -101,11 +102,21 @@
         </div>
         <img id="defaultImage" src="../img/user-black.png" alt="user-black">
       </div>
+
+      <div class="dash-content">
+        <div class="overview">
+            <div class="title">
+                <i class="fa-regular fa-user"></i>
+                <span class="text">Dashboard</span>
+            </div>
+
+        <div style="max-width: 1200px; margin-top: 100px; margin-left: 150px;">
+        <canvas id="grafico"></canvas>
+        </div>  
+
     </section>
 
-    <div>
-        <canvas style="width: 500px; height: 500px;" id="grafico"></canvas>
-    </div>
+    
 
   </body>
 </html>
