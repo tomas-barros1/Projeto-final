@@ -31,22 +31,7 @@ function validarEmail(email) {
 
 function validarFormatoCPF(cpf) {
   cpf = cpf.replace(/[^\d]/g, "");
-
   return cpf.length === 11;
-}
-
-function verificarSeEstaVazio() {
-  if (
-    nome.trim() === "" ||
-    email.trim() === "" ||
-    cpf.trim() === "" ||
-    cnpj.trim() === "" ||
-    cidade.trim() === "" || endereco.trim() === ""
-  ) {
-    alert("Por favor, preencha todos os campos.");
-    return true;
-  }
-  return false;
 }
 
 function validarCNPJ(cnpj) {
@@ -71,15 +56,33 @@ function validarCidade(cidade) {
   return !temNumeros;
 }
 
+function verificarSeEstaVazio() {
+  if (
+    nome.trim() === "" ||
+    email.trim() === "" ||
+    (cpf.trim() === "" && cnpj.trim() === "") ||
+    cidade.trim() === "" ||
+    endereco.trim() === ""
+  ) {
+    alert("Por favor, preencha todos os campos.");
+    return true;
+  }
+  return false;
+}
+
 function validarCampos() {
   if (!validarEmail(email)) {
     alert("E-mail inválido");
-  } else if (!validarCNPJ(cnpj)) {
-    alert("CNPJ inválido");
-  } else if (!validarFormatoCPF(cpf)) {
+    return false;
+  } else if (cpf.trim() !== "" && !validarFormatoCPF(cpf)) {
     alert("CPF inválido");
+    return false;
+  } else if (cnpj.trim() !== "" && !validarCNPJ(cnpj)) {
+    alert("CNPJ inválido");
+    return false;
   } else if (!validarCidade(cidade)) {
     alert("Cidade inválida");
+    return false;
   } else {
     return true;
   }
