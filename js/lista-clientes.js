@@ -10,7 +10,9 @@ async function fetchClientes() {
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td><input type="checkbox"></td>
-        <td>${cliente.nomeFantasia}</td>
+        <td>${cliente.nome}</td>
+        <td>${cliente.email}</td>
+        <td>${cliente.cpf}</td>
         <td>${cliente.cnpj}</td>
         <td>${cliente.endereco}</td>
       `;
